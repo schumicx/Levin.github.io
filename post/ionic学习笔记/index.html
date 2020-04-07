@@ -1,0 +1,121 @@
+<!doctype html><html xmlns=http://www.w3.org/1999/xhtml xml:lang=en lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=generator content="Hugo 0.62.2"><title>Ionic学习笔记 &#183; Levin</title><meta name=description content><meta property="og:locale" content="en"><meta property="og:image" content="https://schumicx.github.io/images/profile.png"><meta property="og:site_name" content="Levin"><meta property="og:title" content="Ionic学习笔记"><meta property="og:description" content="1. ionic环境搭建  安装nodejs  $ brew install node $ node --version $ npm --version  安装git  $ brew install git $ git --version  安装ionic CLI  如果没有安装过ionic，直接安装即可"><meta property="og:url" content="https://schumicx.github.io/post/ionic%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"><meta property="og:type" content="article"><meta property="article:published_time" content="2020-04-07T17:57:39+0800"><meta property="article:modified_time" content="2020-04-07T17:57:39+0800"><meta property="article:author" content="Levin"><script type=application/ld+json>{"@context":"http://schema.org","@type":"Blog","name":"Levin","url":"https://schumicx.github.io/","image":"https://schumicx.github.io/images/profile.png","description":""}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","name":"Ionic学习笔记","headline":"Ionic学习笔记","datePublished":"2020-04-07T17:57:39\x2b0800","dateModified":"2020-04-07T17:57:39\x2b0800","author":{"@type":"Person","name":"Levin","url":"https://schumicx.github.io/"},"image":"https://schumicx.github.io/images/profile.png","url":"https://schumicx.github.io/post/ionic%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/","description":"1. ionic环境搭建  安装nodejs  $ brew install node $ node --version $ npm --version  安装git  $ brew install git $ git --version  安装ionic CLI  如果没有安装过ionic，直接安装即可"}</script><link type=text/css rel=stylesheet href=https://schumicx.github.io/css/print.css media=print><link type=text/css rel=stylesheet href=https://schumicx.github.io/css/poole.css><link type=text/css rel=stylesheet href=https://schumicx.github.io/css/hyde.css><link rel=stylesheet href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap"><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin=anonymous><link rel=apple-touch-icon-precomposed sizes=144x144 href=/apple-touch-icon-144-precomposed.png><link rel="shortcut icon" href=/favicon.png></head><body><aside class=sidebar><div class=container><div class=sidebar-about><div class=author-image><img src=https://schumicx.github.io/images/profile.png class="img-circle img-headshot center" alt="Profile Picture"></div><h1>Levin</h1></div><nav><ul class=sidebar-nav><li><a href=https://schumicx.github.io/>Home</a></li><li><a href=/post/>Posts</a></li><li><a href=/about/>About</a></li></ul></nav><section class=social-icons></section></div></aside><main class="content container"><div class=post><h1>Ionic学习笔记</h1><div class=post-date><time datetime=2020-04-07T17:57:39+0800>Apr 7, 2020</time> · 2 min read</div><h2 id=1-ionic环境搭建>1. ionic环境搭建</h2><ul><li>安装nodejs</li></ul><pre><code>$ brew install node
+
+$ node --version
+$ npm --version
+</code></pre><ul><li>安装git</li></ul><pre><code>$ brew install git
+
+$ git --version
+</code></pre><ul><li>安装ionic CLI</li></ul><p>如果没有安装过ionic，直接安装即可</p><pre><code>$ npm install -g @ionic/cli
+
+$ ionic --version
+</code></pre><p>如果安装过旧版本的ionic，需要先卸载旧版，在进行安装</p><pre><code>$ npm uninstall -g ionic
+$ npm install -g @ionic/cli
+
+$ionic --version
+</code></pre><ul><li>安装 cordova（非必须）</li></ul><p>ionic已经支持capacitor（电容器），cordova可根据自己习惯选择安装</p><pre><code>$ npm install -g cordova
+
+$ cordova --version
+</code></pre><ul><li>安装 Android Studio / Xcode</li></ul><p>在<a href=https://developer.android.com>Android开发者</a>网站上下载最新版Android Studio进行安装，默认会安装Android SDK，并进行环境变量配置</p><pre><code>$ export ANDROID_HOME=$HOME/Library/Android/sdk
+$ export PATH=$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools
+$ export PATH=$PATH:/Users/cuixin/.gradle/wrapper/dists/gradle-5.6.4-all/ankdp27end7byghfw1q2sw75f/gradle-5.6.4/bin/
+</code></pre><p>macOS在mac App Store中下载最新的Xcode进行安装</p><ul><li>安装 ios-sim & ios-deploy（非必须）</li></ul><p>ios sim和ios deploy是在开发期间将应用程序部署到ios模拟器和ios设备的实用程序</p><pre><code>$ npm install -g ios-sim
+$ brew install ios-deploy
+</code></pre><h2 id=2创建项目>2.创建项目</h2><ul><li>创建ionic项目</li></ul><p>方法一：</p><pre><code>$ ionic start ionicStudy blank
+</code></pre><p>方法二：</p><pre><code>$ ionic start ionicStudy blank --type=angular --capacitor
+</code></pre><p>常用模板：tabs：基于选项卡的布局；sidemenu：基于sidemenu的布局；blank：只有一页的空项目</p><p>还可以通过以下命令查看所有模版</p><pre><code>$ ionic start --list
+</code></pre><ul><li>启动项目</li></ul><pre><code>$ cd ionicStudy
+$ ionic serve
+</code></pre><ul><li>创建登陆页面</li></ul><pre><code>$ ionic generate page login
+</code></pre><ul><li>创建服务</li></ul><pre><code>$ ionic generate service services/common
+</code></pre><ul><li>引入服务组件</li></ul><pre><code>import { HttpClient } from '@angular/common/http';
+
+constructor(public http: HttpClient) { }
+</code></pre><ul><li>创建方法</li></ul><pre><code>public config: any = {
+	baseUrl: 'https://API_BASE_URL'
+}
+
+restGet(url:String) {
+	var api = this.config.baseUrl + url;
+  return new Promise((resove, reject) =&gt; {
+    this.http.get(api).subscribe((response) =&gt; {
+    	resove(response);
+    }, (error) =&gt; {
+    	reject(error);
+    })
+  })
+}
+
+restPost(url:String, json:Object) {
+  var api = this.config.baseUrl + url;
+  return new Promise((resove, reject) =&gt; {
+    this.http.post(api, json).subscribe((response) =&gt; {
+    	resove(response);
+    }, (error) =&gt; {
+    	reject(error);
+    })
+  })
+}
+</code></pre><h2 id=3使用组件>3.使用组件</h2><ul><li><p>UI模版参考官方文档</p></li><li><p>app.module.ts中引入组件</p></li></ul><pre><code>import { HttpClientModule } from '@angular/common/http';
+import { CommonService } from './services/common.service';
+
+imports: [HttpClientModule],
+providers: [
+  ...
+  CommonService,
+  ...
+],
+</code></pre><ul><li>在使用页面login.page.ts中调用组件</li></ul><pre><code>var api = &quot;API_URL&quot;;
+this.common.restPost(api, {
+  username: this.account,
+  password: password.value
+}).then((response: any) =&gt; {
+	if (response.success) { //1、成功后处理业务逻辑
+	} else {
+		alert(response.message);
+	}
+}).catch((error: any)=&gt;{
+	console.log(123,error);
+	alert(error.message);
+});
+</code></pre><h2 id=4使用native>4.使用Native</h2><ul><li>以geolocation为例，app.module.ts中引入组件</li></ul><pre><code>import { Geolocation } from '@ionic-native/geolocation/ngx';
+providers: [
+  ...
+  Geolocation,
+  ...
+],
+</code></pre><ul><li>在使用页面login.page.ts中调用组件</li></ul><pre><code>import { Geolocation } from '@ionic-native/geolocation/ngx';
+
+constructor(private geolocation: Geolocation) {
+  this.startLocation();
+  this.watchLocation();
+}
+
+startLocation() {
+  this.geolocation.getCurrentPosition().then((resp) =&gt; {
+    this.latitude = resp.coords.latitude
+    this.longitude = resp.coords.longitude
+  }).catch((error) =&gt; {
+  	console.log('Error getting location', error);
+  });
+}
+
+watchLocation() {
+  let watch = this.geolocation.watchPosition();
+  watch.subscribe((data) =&gt; {
+    if (data) {
+      this.latitude = data.coords.latitude
+      this.longitude = data.coords.longitude
+    }
+  });
+}
+</code></pre><h2 id=5设备运行及打包>5.设备运行及打包</h2><ul><li>Android环境下运行</li></ul><pre><code>$ ionic capacitor add android
+$ ionic capacitor open android
+
+$ ionic capacitor copy android
+$ ionic capacitor run android
+</code></pre><ul><li>Android环境打包</li></ul><p>打开Android studio，在AS中进行打包</p><ul><li>iOS环境下运行</li></ul><pre><code>$ ionic capacitor add ios
+$ ionic capacitor open ios
+
+$ ionic capacitor copy ios
+$ ionic capacitor run ios
+</code></pre><ul><li>iOS环境打包</li></ul><p>打开XCode，在XCode中进行打包</p></div></main><footer><div class=copyright>&copy; Levin 2020 · <a href=https://creativecommons.org/licenses/by-sa/4.0>CC BY-SA 4.0</a></div></footer><script src=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0=" crossorigin=anonymous></script></body></html>
